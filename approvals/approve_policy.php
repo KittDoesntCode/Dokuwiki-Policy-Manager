@@ -1,0 +1,2 @@
+<?php
+// Approve policy script

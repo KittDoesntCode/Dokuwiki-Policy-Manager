@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  dokuwiki:
+    image: lscr.io/linuxserver/dokuwiki:latest
+    container_name: dokuwiki
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/New_York
+    volumes:
+      - ./dokuwiki_data:/config
+      - ./config/local.php:/config/local.php
+      - ./approvals:/var/www/html/approvals
+      - ./approvals_ui:/var/www/html/approvals_ui
+    networks:
+      - dokuwiki-net
+networks:
+  dokuwiki-net:
+    driver: bridge

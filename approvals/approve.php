@@ -1,0 +1,2 @@
+<?php
+// Approval processing script
